@@ -1,0 +1,7 @@
+<div class="dashboard-root" ng-class="{'dashboard-menu-toggled': dashboardMenuToggled}">
+  <a class="dashboard-menu-toggler" ng-click="dashboardMenuToggled = !dashboardMenuToggled" ng-class="{'active': dashboardMenuToggled}"><div></div></a>
+  <aside class="dashboard-menu">
+    <ul class="dashboard-menu-list" ng-transclude></ul>
+  </aside>
+  <section class="dashboard-content" ng-repeat="section in sections" transclude-dashboard-section="section" ng-class="{'active': section.active}"></section>
+</div>

@@ -1,0 +1,39 @@
+{
+  "name": "angular-dashboard",
+  "description": "Angular Dashboard directve.",
+  "homepage": "https://github.com/williamboman/angular-dashboard",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/williamboman/angular-dashboard.git"
+  },
+  "version": "0.0.0",
+  "author": {
+    "name": "William Boman",
+    "email": "william@redwill.se",
+    "url": "http://william.redwill.se"
+  },
+  "main": [
+    "dist/angular-dashboard.js",
+    "dist/angular-dashboard.css"
+  ],
+  "keywords": [
+    "angular",
+    "ngroute",
+    "wizard"
+  ],
+  "license": "MIT",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-autoprefixer": "^1.0.1",
+    "grunt-banner": "^0.2.3",
+    "grunt-contrib-clean": "^0.6.0",
+    "grunt-contrib-compass": "^0.9.1",
+    "grunt-contrib-concat": "^0.5.0",
+    "grunt-contrib-jshint": "~0.7.1",
+    "grunt-contrib-uglify": "^0.5.1",
+    "jshint-stylish": "^0.4.0",
+    "load-grunt-tasks": "^0.6.0",
+    "time-grunt": "^0.4.0"
+  },
+  "dependencies": {}
+}

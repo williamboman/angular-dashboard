@@ -1,0 +1,160 @@
+@import "compass",
+        "breakpoint";
+
+.dashboard-root {
+  $dashboard-menu-width: 100px;
+
+  $dashboard-menu-transition-speed: 150ms;
+  $dashboard-menu-transition-timing-function: ease-out;
+
+  $dashboard-menu-background-color: #333;
+  $dashboard-menu-text-color: #888;
+  $dashboard-menu-text-active-color: #f7f7f7;
+
+  $dashboard-menu-list-item-padding: 15px;
+
+  $dashboard-menu-toggler-height: 34px;
+  $dashboard-menu-toggler-width: 40px;
+  $dashboard-menu-toggler-line-height: 6px;
+
+  position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: {
+    y: auto;
+    x: hidden;
+  }
+
+  @include breakpoint(max-width 767px) {
+    &.dashboard-menu-toggled {
+
+      .dashboard-menu-toggler {
+        transform: translateX($dashboard-menu-width);
+      }
+      .dashboard-menu {
+        transform: translateX(0px);
+      }
+      .dashboard-content {
+        transform: translateX($dashboard-menu-width);
+      }
+    }
+  }
+
+  .dashboard-menu-toggler {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    z-index: 2;
+    transform: translateX(-$dashboard-menu-width);
+    transition: transform $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function !important;
+    width: $dashboard-menu-toggler-width;
+    height: $dashboard-menu-toggler-height;
+    cursor: pointer;
+
+    @include breakpoint(max-width 767px) {
+      transform: translateX(0px);
+    }
+
+    &.active {
+      &:before, &:after, > div {
+        box-shadow: inset 0 0 2px #000;
+      }
+    }
+
+    &:before, &:after, > div {
+      display: block;
+      content: '';
+      width: 100%;
+      height: $dashboard-menu-toggler-line-height;
+      background-color: $dashboard-menu-background-color;
+    }
+    &:before, > div {
+      margin-bottom: (($dashboard-menu-toggler-height)-($dashboard-menu-toggler-line-height*3))/2;
+    }
+  }
+
+  .dashboard-menu {
+    position: absolute;
+    top: 0;
+    left: 0;
+    padding-top: 15px;
+    height: 100%;
+    width: $dashboard-menu-width;
+    background: $dashboard-menu-background-color;
+    overflow: {
+      y: auto;
+      x: hidden;
+    }
+    transform: translateX(0px);
+    transition: all $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function;
+
+    @include breakpoint(max-width 767px) {
+      transform: translateX(-$dashboard-menu-width);
+    }
+
+    .dashboard-menu-list {
+      @include reset-box-model;
+      @include reset-list-style;
+
+      .dashboard-menu-list-item {
+
+        &.active {
+          > a {
+            color: $dashboard-menu-text-active-color !important;
+            background-color: darken($dashboard-menu-background-color, 5%);
+            box-shadow: inset 0 0 5px darken($dashboard-menu-background-color, 20%);
+          }
+        }
+
+        &:first-child {
+          > a { border-top: 1px solid lighten($dashboard-menu-background-color, 5%); }
+        }
+
+        > a {
+          display: block;
+          cursor: pointer;
+          padding: $dashboard-menu-list-item-padding ($dashboard-menu-list-item-padding/3);
+          color: $dashboard-menu-text-color;
+          transition: color $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function;
+          text: {
+            align: center;
+            decoration: none;
+          }
+          font-weight: 300;
+          border-bottom: 1px solid lighten($dashboard-menu-background-color, 5%);
+          background-color: $dashboard-menu-background-color;
+
+          &:hover {
+            color: lighten($dashboard-menu-text-color, 15%);
+          }
+          &:active {
+            background-color: darken($dashboard-menu-background-color, 2%);
+          }
+
+          i.fa {
+            display: block;
+            margin-bottom: 5px;
+          }
+        }
+      }
+    }
+  }
+
+  .dashboard-content {
+    position: relative;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    margin-left: $dashboard-menu-width;
+    transition: transform $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function;
+    display: none;
+
+    &.active {
+      display: block;
+    }
+
+    @include breakpoint(max-width 767px) {
+      margin-left: 0;
+    }
+  }
+}
