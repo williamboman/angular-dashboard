@@ -1,5 +1,5 @@
 /*
-	angular-dashboard v0.0.0 - 24.08.2014
+	angular-dashboard v0.0.1 - 24.08.2014
 	https://github.com/williamboman/angular-dashboard
 
 The MIT License (MIT)
