@@ -5,7 +5,10 @@
     "William Boman <william@redwill.se>"
   ],
   "description": "Angular dashboard directive.",
-  "main": "dist/angular-dashboard.js",
+  "main": [
+    "dist/angular-dashboard.js",
+    "dist/style.css"
+  ],
   "keywords": [
     "angular",
     "angularjs",
@@ -22,5 +25,9 @@
   ],
   "dependencies": {
     "angular": "~1.2"
+  },
+  "devDependencies": {
+    "fontawesome": "~4.1.0",
+    "bootstrap": "~3.2.0"
   }
 }

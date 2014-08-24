@@ -29,10 +29,16 @@ module.exports = function (grunt) {
         files: {
           'dist/angular-dashboard.min.js': 'dist/angular-dashboard.js'
         }
+      },
+      distInclTpls: {
+        files: {
+          'dist/angular-dashboard-tpls.min.js': 'dist/angular-dashboard-tpls.js'
+        }
       }
     },
     clean: {
-      dist: ['dist/']
+      dist: ['dist/'],
+      tmp: ['.tmp/']
     },
     usebanner: {
       dist: {
@@ -47,7 +53,7 @@ module.exports = function (grunt) {
     },
     concat: {
       dist: {
-        src: ['src/module.js', 'src/**/*.js'],
+        src: ['src/module.js', 'src/**/*.js', '.tmp/templates.js'],
         dest: 'dist/angular-dashboard.js'
       }
     },
@@ -73,6 +79,71 @@ module.exports = function (grunt) {
         src: '.tmp/style.css',
         dest: 'dist/style.css'
       }
+    },
+    connect: {
+      options: {
+        port: 9000,
+        hostname: '0.0.0.0',
+        livereload: 35729
+      },
+      livereload: {
+        options: {
+          open: true,
+          middleware: function (connect) {
+            return [
+              connect().use(
+                '/bower_components',
+                connect.static('./bower_components')
+              ),
+              connect().use(
+                '/assets',
+                connect.static('./dist')
+              ),
+              connect.static('./example')
+            ];
+          }
+        }
+      }
+    },
+    watch: {
+      livereload: {
+        options: {
+          livereload: '<%= connect.options.livereload %>'
+        },
+        files: [
+          'example/**/*',
+          'dist/**/*.+(js|css)'
+        ]
+      },
+      compass: {
+        files: [
+          'src/**/*.scss'
+        ],
+        tasks: [
+          'compass:dist',
+          'autoprefixer:dist'
+        ]
+      },
+      bower: {
+        files: ['bower.json'],
+        tasks: ['wiredep:example']
+      }
+    },
+    wiredep: {
+      example: {
+        src: [
+          'example/**/*.html'
+        ],
+        ignorePath:  /\.\.\//,
+        dependencies: true,
+        devDependencies: true
+      }
+    },
+    ngtemplates:  {
+      'wb.angularDashboard': {
+        src: 'templates/**/*.html',
+        dest: '.tmp/templates.js'
+      }
     }
   });
 
@@ -80,9 +151,17 @@ module.exports = function (grunt) {
     'jshint:all'
   ]);
 
+  grunt.registerTask('serve', [
+    'build',
+    'wiredep:example',
+    'connect:livereload',
+    'watch'
+  ]);
+
   grunt.registerTask('build', [
     'jshint:all',
-    'clean:dist',
+    'clean',
+    'ngtemplates',
     'concat:dist',
     'uglify:dist',
     'compass:dist',

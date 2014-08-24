@@ -18,12 +18,9 @@
   $dashboard-menu-toggler-line-height: 6px;
 
   position: relative;
+  box-sizing: border-box;
   width: 100%;
   height: 100%;
-  overflow: {
-    y: auto;
-    x: hidden;
-  }
 
   @include breakpoint(max-width 767px) {
     &.dashboard-menu-toggled {
@@ -75,6 +72,7 @@
 
   .dashboard-menu {
     position: absolute;
+    z-index: 2;
     top: 0;
     left: 0;
     padding-top: 15px;
@@ -142,19 +140,21 @@
 
   .dashboard-content {
     position: relative;
+    box-sizing: border-box;
     z-index: 1;
     height: 100%;
     width: 100%;
-    margin-left: $dashboard-menu-width;
-    transition: transform $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function;
+    padding-left: $dashboard-menu-width;
+    transition: all $dashboard-menu-transition-speed $dashboard-menu-transition-timing-function;
     display: none;
+    overflow: auto;
 
     &.active {
       display: block;
     }
 
     @include breakpoint(max-width 767px) {
-      margin-left: 0;
+      padding-left: 0;
     }
   }
 }

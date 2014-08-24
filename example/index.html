@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="exampleApp">
+  <head>
+    <meta charset="UTF-8">
+    <title>Angular Dashboard Example</title>
+    <!-- bower:css -->
+    <link rel="stylesheet" href="bower_components/fontawesome/css/font-awesome.css" />
+    <link rel="stylesheet" href="bower_components/bootstrap/dist/css/bootstrap.css" />
+    <!-- endbower -->
+
+    <link rel="stylesheet" href="assets/style.css">
+
+    <link rel="stylesheet" href="main.css">
+  </head>
+  <body ng-controller="indexCtrl">
+    <div class="desktop-dashboard-container">
+      <dashboard>
+        <dashboard-item heading="Profile" icon="user">
+          <h1>Profile content!</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus iste, odit distinctio facilis odio officia quia tempore. Esse eligendi aliquam nihil minus, laborum sed accusamus cumque repellat delectus eaque, obcaecati.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta aut aliquam eaque ex vero ea totam nesciunt nostrum. Labore ducimus earum minus officiis, fuga velit ut dignissimos fugiat, ipsam architecto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro accusantium nemo tempora quaerat nihil veritatis hic aspernatur architecto quis, itaque, omnis! Veritatis aspernatur minima, quod earum dignissimos ad error illum?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cupiditate officiis odit et sequi aperiam, pariatur illum tenetur fuga tempore ab dolores nemo incidunt molestiae molestias delectus vero ipsam laborum.Lorem ipsum dolor sit amet, consectetur adipisicing elit. Consectetur veniam sed asperiores quam, magnam placeat dolorum, harum culpa dicta velit quisquam itaque corporis. Consequatur facilis perferendis eos, tempora et iusto.</p>
+        </dashboard-item>
+        <dashboard-item heading="Settings" icon="wrench">
+          <h1>Settings content!</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus iste, odit distinctio facilis odio officia quia tempore. Esse eligendi aliquam nihil minus, laborum sed accusamus cumque repellat delectus eaque, obcaecati.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta aut aliquam eaque ex vero ea totam nesciunt nostrum. Labore ducimus earum minus officiis, fuga velit ut dignissimos fugiat, ipsam architecto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro accusantium nemo tempora quaerat nihil veritatis hic aspernatur architecto quis, itaque, omnis! Veritatis aspernatur minima, quod earum dignissimos ad error illum?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cupiditate officiis odit et sequi aperiam, pariatur illum tenetur fuga tempore ab dolores nemo incidunt molestiae molestias delectus vero ipsam laborum.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Tempore laborum consequuntur inventore soluta distinctio dolorum. Earum ipsam sint eveniet nisi blanditiis a commodi maiores dignissimos, ea tempore pariatur neque itaque! Lorem ipsum dolor sit amet, consectetur adipisicing elit. Maiores expedita, ullam dignissimos reprehenderit tempore in ratione recusandae numquam voluptatum possimus nam voluptatibus eum, neque, sed molestias et nihil vero cum.</p>
+        </dashboard-item>
+        <dashboard-item heading="Status" icon="dashboard">
+          <h1>Status content!</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Natus iste, odit distinctio facilis odio officia quia tempore. Esse eligendi aliquam nihil minus, laborum sed accusamus cumque repellat delectus eaque, obcaecati.</p>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Soluta aut aliquam eaque ex vero ea totam nesciunt nostrum. Labore ducimus earum minus officiis, fuga velit ut dignissimos fugiat, ipsam architecto. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Porro accusantium nemo tempora quaerat nihil veritatis hic aspernatur architecto quis, itaque, omnis! Veritatis aspernatur minima, quod earum dignissimos ad error illum?Lorem ipsum dolor sit amet, consectetur adipisicing elit. Possimus cupiditate officiis odit et sequi aperiam, pariatur illum tenetur fuga tempore ab dolores nemo incidunt molestiae molestias delectus vero ipsam laborum.</p>
+        </dashboard-item>
+      </dashboard>
+    </div>
+
+
+
+    <!-- bower:js -->
+    <script src="bower_components/jquery/dist/jquery.js"></script>
+    <script src="bower_components/angular/angular.js"></script>
+    <script src="bower_components/bootstrap/dist/js/bootstrap.js"></script>
+    <!-- endbower -->
+    <script src="assets/angular-dashboard.js"></script>
+    <script>
+      angular.module('exampleApp', ['wb.angularDashboard'])
+        .controller('indexCtrl', function ($scope) {
+
+        });
+    </script>
+  </body>
+</html>
