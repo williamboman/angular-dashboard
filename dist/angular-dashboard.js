@@ -1,5 +1,5 @@
 /*
-	angular-dashboard v0.0.1 - 24.08.2014
+	angular-dashboard v0.1.0 - 30.08.2015
 	https://github.com/williamboman/angular-dashboard
 
 The MIT License (MIT)
@@ -40,7 +40,7 @@ THE SOFTWARE.
   'use strict';
 
   angular.module('wb.angularDashboard.controllers')
-    .controller('angularDashboardCtrl', function ($scope) {
+    .controller('angularDashboardCtrl', ['$scope', function ($scope) {
       var sections = $scope.sections = [];
 
       this.addSection = function (section) {
@@ -61,7 +61,7 @@ THE SOFTWARE.
           }
         });
       };
-    });
+    }]);
 })(window.angular);
 
 (function (angular) {
