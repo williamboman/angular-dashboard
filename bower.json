@@ -24,10 +24,7 @@
     "tests"
   ],
   "dependencies": {
-    "angular": "~1.2"
-  },
-  "devDependencies": {
-    "fontawesome": "~4.1.0",
-    "bootstrap": "~3.2.0"
+    "angular": "~1",
+    "fontawesome": "*"
   }
 }
