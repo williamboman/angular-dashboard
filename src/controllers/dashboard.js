@@ -2,7 +2,7 @@
   'use strict';
 
   angular.module('wb.angularDashboard.controllers')
-    .controller('angularDashboardCtrl', function ($scope) {
+    .controller('angularDashboardCtrl', ['$scope', function ($scope) {
       var sections = $scope.sections = [];
 
       this.addSection = function (section) {
@@ -23,5 +23,5 @@
           }
         });
       };
-    });
+    }]);
 })(window.angular);
